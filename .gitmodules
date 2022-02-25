@@ -1,0 +1,12 @@
+
+[submodule "src/projects/system"]
+	path = src/projects/system
+	url = http://10.0.1.250:9090/dept-base/basemng/basis/source/system.git
+	branch = master
+[submodule "src/projects/wfmng"]
+	path = src/projects/wfmng
+	url = http://10.0.1.250:9090/dept-base/product/frame/source/wfuicomp/wfmng.git
+	branch = master
+[submodule "src/wfruntime"]
+	path = src/wfruntime
+	url = http://10.0.1.250:9090/dept-base/product/frame/source/wfuicomp/wfruntime.git

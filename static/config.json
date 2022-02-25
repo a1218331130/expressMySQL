@@ -1,0 +1,17 @@
+{
+  "ENV_CONFIG": {
+    "_description": "适配环境配置",
+    "development": {
+      "ENV_LIST": {
+        "VUE_APP_BASE_API": "/blogApi",
+        "VUE_APP_DESIGNER_URL": "/blogApi"
+      }
+    },
+    "production": {
+      "ENV_LIST": {
+        "VUE_APP_BASE_API": "http://10.3.1.87:7001",
+        "VUE_APP_DESIGNER_URL": "http://10.3.1.87:7001"
+      }
+    }
+  }
+}

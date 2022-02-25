@@ -1,0 +1,10 @@
+{
+  "sysModuleArr": [
+    "index",
+    "manager"
+  ],
+  "buildModules": [
+    "index",
+    "manager"
+  ]
+}

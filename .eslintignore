@@ -1,0 +1,7 @@
+build/*.js
+config/*.js
+coder/*.js
+src/assets
+src/projects/onemap/assets/iconfont/*.js
+src/projects/wfmng/assets/iconfont/*.js
+src/projects/onemap/components/MapView/font/

@@ -1,0 +1,19 @@
+{
+  "presets": ["@vue/babel-preset-jsx", "@babel/preset-env"],
+  "plugins": [
+    "@vue/babel-plugin-transform-vue-jsx",
+    "@babel/plugin-transform-runtime"
+    // [
+    //   "import",
+    //   {
+    //     "libraryName": "vxe-table",
+    //     "style": true
+    //   }
+    // ]
+  ],
+  "env": {
+    "development": {
+      "plugins": ["dynamic-import-node"]
+    }
+  }
+}

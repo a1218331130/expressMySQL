@@ -1,0 +1,47 @@
+// 滚动条样式
+body {
+  font-weight: normal;
+
+  margin: 0;
+  scrollbar-face-color: #cbcbcb; /*滚动条凸出部分的颜色*/
+  scrollbar-highlight-color: #eee; /*滚动条空白部分的颜色*/
+  scrollbar-shadow-color: #d8d8d8; /*滚动条阴影的颜色*/
+  scrollbar-track-color: #fff; /*滚动条背景颜色*/
+
+  scrollbar-base-color: black; /*滚动条的基本颜色*/
+  /*以上2项适用与：body、div、textarea、iframe*/
+}
+
+::-webkit-scrollbar {
+  /* 滚动条整体部分 */
+  width: 10px;
+  margin-right: 2px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 10px;
+  margin-bottom: 2px;
+}
+
+::-webkit-scrollbar-track {
+  /* 外层轨道 */
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track-piece {
+  /*内层轨道，滚动条中间部分 */
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  /* 滑块 */
+  width: 10px;
+  border-radius: 5px;
+  background: #d8d8d8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* 鼠标移入滑块 */
+  background: #c4c4c4;
+}
