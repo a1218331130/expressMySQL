@@ -1,18 +1,13 @@
 <template>
-  <div id="app">
+  <div id="app" style="height: 100%">
     <router-view />
   </div>
 </template>
 <script>
-import { getToken } from '@/projects/index/utils/auth'
 export default {
   name: 'App',
   created() {},
-  mounted() {
-    if (!getToken()) {
-      this.$router.push({ path: '/login' })
-    }
-  }
+  mounted() {}
 }
 </script>
 <style></style>

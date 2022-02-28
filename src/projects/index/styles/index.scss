@@ -1,7 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
 // 滚动条样式
 body {
   font-weight: normal;
-
+  height: 100%;
   margin: 0;
   scrollbar-face-color: #cbcbcb; /*滚动条凸出部分的颜色*/
   scrollbar-highlight-color: #eee; /*滚动条空白部分的颜色*/

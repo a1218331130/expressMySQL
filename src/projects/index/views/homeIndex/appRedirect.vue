@@ -1,11 +1,11 @@
 <template>
   <div ref="wrapperSelect" class="wrapper-common wrapper-app">
-    <Header></Header>
+    <!-- <Header></Header> -->
     <el-container id="main">
-      <el-main>
+      <el-aside width="300px" height="100%"><Header></Header></el-aside>
+      <el-main style="background: #eaeaea">
         <router-view />
       </el-main>
-      <el-aside width="250px">Aside</el-aside>
     </el-container>
   </div>
 </template>
@@ -31,8 +31,14 @@ export default {
 }
 </style>
 <style lang="scss" scoped>
-#main {
-  width: 1100px;
-  margin: 0 auto;
+.wrapper-common {
+  height: 100%;
+  #main {
+    height: 100%;
+  }
 }
+// #main {
+//   width: 1100px;
+//   margin: 0 auto;
+// }
 </style>
