@@ -46,8 +46,8 @@
         <el-form-item label="作者:" prop="author">
           <el-input v-model="listForm.author" placeholder="作者" />
         </el-form-item>
-        <el-form-item label="图片地址:" prop="imageUrl">
-          <el-input v-model="listForm.imageUrl" placeholder="图片地址" />
+        <el-form-item label="简介:" prop="descstr">
+          <el-input v-model="listForm.descstr" placeholder="图片地址" />
         </el-form-item>
         <el-form-item :label="`${childDialogOpt.title}时间:`">
           <el-input v-model="listForm.time" :placeholder="`${childDialogOpt.title}时间`" disabled />
@@ -156,8 +156,8 @@ export default {
           align: 'center'
         },
         {
-          label: '图片地址',
-          prop: 'imageUrl',
+          label: '简介',
+          prop: 'descstr',
           width: '150px',
           align: 'center'
         },
@@ -182,7 +182,7 @@ export default {
       rules: {
         title: [{ required: true, message: '请输入标题', trigger: 'blur' }],
         author: [{ required: true, message: '请输入作者', trigger: 'blur' }],
-        imageUrl: [{ required: true, message: '请输入图片地址', trigger: 'blur' }]
+        descstr: [{ required: true, message: '请输入简介', trigger: 'blur' }]
       },
       tableRightList: [],
       queryForm: {},
@@ -252,10 +252,18 @@ export default {
       this.inputVisible = false
       this.inputValue = ''
     },
+    toLiteral(str) {
+      if (!str) return ''
+      var dict = { '\b': 'b', '\t': 't', '\n': 'n', '\v': 'v', '\f': 'f', '\r': 'r' }
+      return str.replace(/([\\'"\b\t\n\v\f\r])/g, function (_$0, $1) {
+        return '\\' + (dict[$1] || $1)
+      })
+    },
     submitList() {
       this.$refs['elForm'].validate((valid) => {
         if (valid) {
           this.listForm.parentId = this.activeId
+          this.listForm.detailText = this.toLiteral(this.listForm.detailText)
           this.listForm.contentList = JSON.stringify(this.contentList)
           this.listForm.tagList = JSON.stringify(this.dynamicTags)
           if (this.childDialogOpt.title === '新建') {

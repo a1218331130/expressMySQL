@@ -17,7 +17,23 @@ body {
   scrollbar-base-color: black; /*滚动条的基本颜色*/
   /*以上2项适用与：body、div、textarea、iframe*/
 }
-
+body:after {
+  background-color: #efefef;
+  background-image: linear-gradient(90deg, rgba(60, 10, 30, 0.04) 3%, transparent 0), linear-gradient(1turn, rgba(60, 10, 30, 0.04) 3%, transparent 0);
+  background-size: 20px 20px;
+  background-position: 50%;
+  background-repeat: repeat;
+}
+body:after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+  pointer-events: none;
+}
 ::-webkit-scrollbar {
   /* 滚动条整体部分 */
   width: 10px;

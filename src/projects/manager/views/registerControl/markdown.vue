@@ -33,9 +33,16 @@ export default {
   watch: {},
   created() {},
   methods: {
+    toLiteral(str) {
+      var dict = { '\b': 'b', '\t': 't', '\n': 'n', '\v': 'v', '\f': 'f', '\r': 'r' }
+      return str.replace(/([\\'"\b\t\n\v\f\r])/g, function (_$0, $1) {
+        return '\\' + (dict[$1] || $1)
+      })
+    },
     $imgAdd() {},
     save(value, render) {
-      updatelist({ ...this.$parent.listForm, detailText: render }).then((res) => {
+      const htmlRender = this.toLiteral(render)
+      updatelist({ ...this.$parent.listForm, detailText: htmlRender }).then((res) => {
         this.$message.success('修改成功')
         this.$parent.getTableList()
       })

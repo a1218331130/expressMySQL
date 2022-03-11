@@ -16,6 +16,16 @@ const blogList = function blogList(db, app) {
       }
     })
   })
+  app.get('/blogApi/getNewlist', (req, res) => {
+    let sql = 'SELECT * FROM blogList limit 0,6'
+    db.query(sql, (err, result) => {
+      if (err) {
+        console.log(err)
+      } else {
+        res.json(result)
+      }
+    })
+  })
   // 插入数据
   app.get('/blogApi/addlist', (req, res) => {
     let post = req.query
@@ -64,12 +74,12 @@ const blogList = function blogList(db, app) {
     })
   })
   // 更新内容
-  app.get('/blogApi/updatelist/:id', (req, res) => {
-    let post = req.query
-    const sqlData = `title = '${post.title}',author = '${post.author}',imageUrl = '${post.imageUrl}',tagList = '${post.tagList}',time = '${post.time}',contentList = '${post.contentList}',detailText = '${post.detailText}',compView = '${post.compView}',compCss = '${post.compCss}',compJavascript = '${post.compJavascript}'`
-    // const sqlData = `title = '${post.title}',author = '${post.author}',imageUrl = '${post.imageUrl}',tagList = '${post.tagList}',time = '${post.time}',contentList = '${post.contentList}',detailText = '${post.detailText}',compView = '${post.compView}',compCss = '${post.compCss}',compJavascript = '${post.compJavascript}'`
-    let sql = `UPDATE blogList SET ${sqlData} WHERE id = ${req.params.id}`
-    console.log(sql, 'sqlsql')
+  app.post('/blogApi/updatelist', (req, res) => {
+    let post = req.body
+    const sqlData = `title = '${post.title}',author = '${post.author}',descstr = '${post.descstr}',tagList = '${post.tagList}',time = '${post.time}',contentList = '${post.contentList}',detailText = '${post.detailText}',compView = '${post.compView}',compCss = '${post.compCss}',compJavascript = '${post.compJavascript}'`
+    // const sqlData = `title = '${post.title}',author = '${post.author}',descstr = '${post.descstr}',tagList = '${post.tagList}',time = '${post.time}',contentList = '${post.contentList}',detailText = '${post.detailText}',compView = '${post.compView}',compCss = '${post.compCss}',compJavascript = '${post.compJavascript}'`
+    let sql = `UPDATE blogList SET ${sqlData} WHERE id = ${post.id}`
+    // console.log(sql, 'sqlsql')
     db.query(sql, (err, result) => {
       if (err) {
         console.log(err)
@@ -88,6 +98,18 @@ const blogList = function blogList(db, app) {
       } else {
         console.log(result)
         res.send('删除成功.....')
+      }
+    })
+  })
+
+  // 统计总数
+  app.get('/blogApi/listCount', (req, res) => {
+    let sql = `select count(*) from blogList `
+    db.query(sql, (err, result) => {
+      if (err) {
+        console.log(err)
+      } else {
+        res.json(result)
       }
     })
   })

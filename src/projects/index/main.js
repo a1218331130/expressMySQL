@@ -14,7 +14,7 @@ import store from './store'
 import App from './App'
 import website from '@modularize/config/website'
 import '@/projects/index/styles/index.scss' // global css
-
+import './utils/hljs'
 import './permission' // permission control
 // 引入全局公共组件(注：因考虑到运维系统是必然引入的子系统，所以将其放入sysmng子系统中)
 
@@ -28,6 +28,9 @@ utilListMethod(Vue)
 requestMethod(Vue, request, require.context(`@index/api/modules`, true, /\.js$/))
 // 引入gdcomponent
 import { addCompList } from '@modularize/comp'
+import VueJsonp from 'vue-jsonp'
+
+Vue.use(VueJsonp)
 addCompList(Vue)
 Vue.use(router)
 Vue.use(Vuex)

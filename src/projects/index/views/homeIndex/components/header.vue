@@ -5,7 +5,7 @@
       <header id="header" class="inner">
         <a href="/" class="profilepic"><img src="/static/index/images/head.jpg" class="js-avatar" /></a>
         <hgroup>
-          <h1 class="header-author"><a href="/">試毅-思伟</a></h1>
+          <h1 class="header-author"><a href="/">前端-程卫拓</a></h1>
         </hgroup>
         <nav class="header-menu">
           <ul>
@@ -79,10 +79,15 @@ export default {
       })
     },
     handleToModule(item) {
-      if (item.name !== '后台管理') {
+      if (item.descp === 'form design') {
+        window.open('/#/formSign', '_blank')
+        // this.$router.push({ path: '/formSign' })
+        return
+      }
+      if (item.name !== '后台管理' && item.name !== '组件库') {
         this.$router.push({ path: '/select/list', query: { id: item.id } })
       } else {
-        window.open(item.url, '_self')
+        window.open(item.url, '_blank')
         //  window.open('./wfmng', '_self')
       }
     }
@@ -221,6 +226,6 @@ img {
 }
 .left-col #header a:hover {
   cursor: pointer;
-  color: #08c;
+  color: #fb6c28;
 }
 </style>

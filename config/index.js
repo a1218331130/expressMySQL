@@ -26,6 +26,9 @@ module.exports = {
       '/blogApi/*': {
         target: 'http://localhost:3000'
       }
+      // '/blogApi/myJsonp/*': {
+      //   target: 'http://m.kugou.com/?json=true'
+      // }
     }
   },
   build: {

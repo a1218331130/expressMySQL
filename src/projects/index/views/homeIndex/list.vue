@@ -11,23 +11,24 @@
             <span><i class="el-icon-date"></i> {{ item.time }}</span>
           </div>
           <ul>
-            <li>博主博客地址</li>
-            <li>博主使用的是hexo-theme-yilia-plus主题</li>
+            <li v-for="(item, index) in getContentList(item.contentList)" :key="index">{{ item.name }}</li>
           </ul>
+
           <blockquote>
             <p>
-              Gitment 是一位作者实现的一款基于 GitHub Issues 的评论系统。支持在前端直接引入，不需要任何后端代码。可以在页面进行登录、查看、评论、点赞等操作，同时有完整的
-              和代码高亮支持。尤为适合各种基于 GitHub Pages 的静态博客或项目页面。
+              {{ item.descstr }}
             </p>
           </blockquote>
         </div>
         <div class="article-info article-info-index">
           <div class="article-tag tagcloud">
             <ul class="article-tag-list">
-              <li class="article-tag-list-item"><a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a></li>
+              <li v-for="(item, index) in getTagList(item.tagList)" :key="index" class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag article-tag-list-link color5">{{ item.name }}</a>
+              </li>
             </ul>
           </div>
-          <p class="article-more-link"><a class="article-more-a">展开全文</a></p>
+          <p class="article-more-link" @click="toDetail(item)" style="cursor: pointer"><a class="article-more-a">展开全文</a></p>
           <div class="clearfix"></div>
         </div>
       </div>
@@ -36,7 +37,7 @@
   <!-- <div class="list_container">
     <div v-for="(item, index) in blogList" :key="index" class="list">
       <div class="list_left">
-        <img :src="require(`../../assets/${item.imageUrl}.jpeg`)" alt="" />
+        <img :src="require(`../../assets/${item.descstr}.jpeg`)" alt="" />
       </div>
       <div class="list_right">
         <div class="list_title" @click="toDetail(item)">{{ item.title }}</div>
@@ -99,7 +100,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .article-entry h2,
 .article-entry h3,
 .article-entry h4,

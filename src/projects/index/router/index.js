@@ -21,7 +21,11 @@ export const constantRoutes = [
     name: '登录页',
     component: () => import('../login/index.vue')
   },
-
+  {
+    path: '/formSign',
+    name: '表单定制器',
+    component: () => import('../views/vueForm/formVueDesign.vue')
+  },
   {
     path: '/select',
     name: 'SelectApp',
